@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="Contact@SmatFama.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .contact-card h1 {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">SmatFama</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Vet Services</a>
+            <a href="#">Lab Services</a>
+            <a href="Contact@SmatFama.html">Contacts</a>
+        </nav>
+    </header>
+
+    <div class="contact-card">
+        <h1>Contact Us</h1>
+        <form class="contact-form" onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="error-message" id="error-message"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (name.trim() === "") {
+                showError("Please enter your name");
+                return false;
+            }
+
+            if (!emailRegex.test(email)) {
+                showError("Please enter a valid email address");
+                return false;
+            }
+
+            // You can add additional validations as needed
+
+            // If all validations pass, you can proceed with form submission
+            alert("Form submitted successfully!");
+            return true;
+        }
+
+        function showError(message) {
+            document.getElementById("error-message").innerText = message;
+        }
+    </script>
+</body>
+</html>

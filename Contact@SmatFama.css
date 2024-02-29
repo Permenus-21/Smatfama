@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #4CAF50;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #fff;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #4CAF50;
+    color: #fff;
+
+}
+
+nav a:hover {
+    color: #d9ff00; /* Change the color on hover */

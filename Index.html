@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriconnect - Your Agricultural Companion</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body>
+    <header>
+        <div id="logo">SmatFama</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Vet Services</a>
+            <a href="#">Lab Services</a>
+            <a href="Contact@SmatFama.html">Contacts</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h1>MISSION</h1>
+            <p>To create an integrated agricultural-based system that brings together farmers,
+                 veterinarians, and laboratory services within a unified platform. 
+                 Our mission is to empower and support sustainable agriculture by providing a 
+                 collaborative environment where stakeholders can easily access and share information,
+                  resources, and expertise. Through technology, we aim to enhance productivity, 
+                  promote animal health, and contribute to the overall well-being of farming communities.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>VISION</h1>
+            <p class="Vision">Our vision is to build a thriving and connected agricultural ecosystem that 
+                leverages technology to optimize the entire farming process.
+                 We envision a future where farmers, veterinarians, and lab services seamlessly collaborate, 
+                 share insights, and make data-driven decisions. By fostering this interconnected community, 
+                 we strive to promote sustainable farming practices, improve animal health outcomes,
+                 and ensure the delivery of high-quality agricultural products to global markets.</p>
+        </div>
+    </div>
+
+
+    <a href="#" class="get-started-button" onclick="openModal()">GET STARTED</a>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <!-- Your login form goes here -->
+            <h2>Login</h2>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#">Forgot Password</a>
+            </form>
+            <p class="create-account">Don't have an account? <a href="#">Create account</a></p>
+        </div>
+
+        <div id="createAccountForm" style="display: none;">
+            <h2>Create Account</h2>
+            <form class="create-account-form" onsubmit="return validateCreateAccount()">
+                <input type="email" id="createEmail" placeholder="Email" required>
+                <input type="password" id="createPassword" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+         // Modal functionality
+         function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+            // Reset create account form on modal close
+            document.getElementById("createAccountForm").style.display = "none";
+            document.getElementById("createEmail").value = "";
+            document.getElementById("createPassword").value = "";
+            document.getElementById("confirmPassword").value = "";
+        }
+
+        // Show create account form
+        function showCreateAccountForm() {
+            document.getElementById("createAccountForm").style.display = "block";
+        }
+
+        // Validate create account form
+        function validateCreateAccount() {
+            var createEmail = document.getElementById("createEmail").value;
+            var createPassword = document.getElementById("createPassword").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Basic email validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(createEmail)) {
+                alert("Invalid email address");
+                return false;
+            }
+
+            // Password and Confirm Password validation
+            if (createPassword.length < 8) {
+                alert("Password must be at least 8 characters");
+                return false;
+            }
+
+            if (createPassword !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            // Success - You can proceed with form submission
+            alert("Account created successfully!");
+            closeModal();
+        }
+    </script>
+</body>
+</html>
